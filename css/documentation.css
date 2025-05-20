@@ -1,0 +1,237 @@
+:root {
+    --primary-color: #8d2cf7;
+    --header-bg: #8d2cf7;
+    --background-light: #f9f9fc;
+    --text-main: #181920;
+    --text-secondary: #444;
+    --hover-color: #6b1bb4;
+    --doc-button-color: #8d2cf7;
+    --doc-button-hover: #4d39fa;
+    --footer-color: #888;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    background: var(--background-light);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    height: 25vh;
+    min-height: 150px;
+    width: 100%;
+    background: var(--header-bg);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    box-shadow: none;
+}
+
+.logo {
+    font-size: 3.4rem;
+    font-weight: bold;
+    margin-left: 5vw;
+    flex-shrink: 0;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    margin-right: 6vw;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: normal;
+    font-size: 1.15rem;
+    transition: color 0.3s;
+    padding: 0.2rem 0.4rem;
+}
+
+nav a:hover {
+    color: var(--hover-color);
+}
+
+/* Présentation */
+main {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 3rem 0 0 0;
+    background: var(--background-light);
+}
+
+/* --- Partie Documentation --- */
+.documentation {
+    margin: 0 auto;
+    max-width: 1100px;
+    padding: 2rem 0;
+}
+
+.documentation h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.doc-categories {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.doc-cat-btn {
+    background: #ece7fa;
+    color: var(--primary-color);
+    border: none;
+    outline: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    margin-bottom: 0.5rem;
+}
+
+.doc-cat-btn.active,
+.doc-cat-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.doc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.doc-list-btn {
+    background: #ece7fa;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 12px;
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(141,44,247,0.05);
+}
+
+.doc-list-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.doc-detail {
+    max-width: 650px;
+    margin: 2rem auto;
+    background: #fff;
+    color: var(--text-main);
+    border-radius: 18px;
+    box-shadow: 0 2px 24px rgba(141,44,247,0.10);
+    padding: 2.5rem 2rem 2rem 2rem;
+    animation: fadeIn 0.3s;
+    position: relative;
+}
+
+.doc-detail h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+}
+
+.doc-detail code {
+    background: #ece7fa;
+    color: var(--primary-color);
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-size: 1em;
+    font-family: "Fira Mono", "Consolas", monospace;
+}
+
+.back-btn {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: var(--hover-color);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to   { opacity: 1; transform: none;}
+}
+
+@media (max-width: 700px) {
+    .doc-categories {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .doc-list-btn {
+        max-width: 98vw;
+        font-size: 1rem;
+        padding: 1rem 0.7rem;
+    }
+    .doc-detail {
+        padding: 1.2rem 0.5rem 1rem 0.5rem;
+    }
+}
+
+/* --- Footer --- */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+    text-align: center;
+    z-index: 200;
+}
+footer .copyright {
+    color: var(--footer-color);
+    font-size: 1rem;
+    padding: 0.7rem 0 0.4rem 0;
+    letter-spacing: 0.5px;
+}

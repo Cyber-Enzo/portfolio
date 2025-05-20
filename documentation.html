@@ -1,11 +1,140 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation</title>
+    <title>Documentation - Portfolio Draco</title>
+    <link rel="stylesheet" href="css/documentation.css">
 </head>
 <body>
-    <h1>EN CONSTRUCTION 🚧</h1>
+    <header>
+        <div class="logo">Portfolio</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="parcours.html">Parcours</a></li>
+                <li><a href="competences.html">Compétences</a></li>
+                <li><a href="projets.html">Projets</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="documentation">
+            <h1>Documentation</h1>
+            <!-- 1. Catégories -->
+            <div class="doc-categories">
+                <button class="doc-cat-btn active" data-category="pentest">Pentest</button>
+                <button class="doc-cat-btn" data-category="code">Code</button>
+                <button class="doc-cat-btn" data-category="services">Services</button>
+                <button class="doc-cat-btn" data-category="reseau">Réseau & Cyber</button>
+            </div>
+            <!-- 2. Liste de sous-thèmes -->
+            <div class="doc-list" id="doc-list">
+                <!-- Rempli dynamiquement par JS -->
+            </div>
+            <!-- 3. Détail du sous-thème -->
+            <div class="doc-detail" id="doc-detail" style="display:none;">
+                <button class="back-btn" onclick="hideDetail()">← Retour</button>
+                <div id="doc-detail-content"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="copyright">© Tous droits réservés</p>
+    </footer>
+
+    <script>
+    // 1. Structure des données
+    const docData = {
+        pentest: [
+            {
+                title: "Nmap - Commandes de base",
+                detail: "<p>Découvrir les ports ouverts et services :<br><code>nmap -sV -A cible</code></p>"
+            },
+            {
+                title: "Metasploit - Cheat Sheet",
+                detail: "<p>Lancer Metasploit :<br><code>msfconsole</code><br>Utiliser un exploit :<br><code>use exploit/windows/smb/ms17_010_eternalblue</code></p>"
+            },
+            {
+                title: "Hydra - Brute force",
+                detail: "<p>Exemple SSH :<br><code>hydra -l admin -P wordlist.txt ssh://192.168.1.10</code></p>"
+            }
+        ],
+        code: [
+            {
+                title: "Python - Lire un fichier",
+                detail: "<p><code>with open('fichier.txt') as f: contenu = f.read()</code></p>"
+            },
+            {
+                title: "Bash - Boucle for",
+                detail: "<p><code>for i in {1..10}; do echo $i; done</code></p>"
+            }
+        ],
+        services: [
+            {
+                title: "Installer un serveur FOG",
+                detail: "<p>Guide pas à pas pour installer FOG sur Debian/Ubuntu.<br><a href='#'>Voir le guide complet</a></p>"
+            },
+            {
+                title: "Déployer GLPI",
+                detail: "<p>Étapes pour installer et configurer GLPI.<br><a href='#'>Voir le tuto</a></p>"
+            }
+        ],
+        reseau: [
+            {
+                title: "Configurer une interface réseau Linux",
+                detail: "<p><code>ip addr add 192.168.1.10/24 dev eth0</code></p>"
+            },
+            {
+                title: "Configurer un firewall UFW",
+                detail: "<p><code>ufw allow 22/tcp</code></p>"
+            }
+        ]
+    };
+
+    // 2. Affichage de la liste selon la catégorie sélectionnée
+    function showDocList(category) {
+        const listDiv = document.getElementById('doc-list');
+        const detailDiv = document.getElementById('doc-detail');
+        detailDiv.style.display = 'none';
+        listDiv.innerHTML = '';
+        docData[category].forEach((item, idx) => {
+            const btn = document.createElement('button');
+            btn.className = "doc-list-btn";
+            btn.innerText = item.title;
+            btn.onclick = () => showDetail(category, idx);
+            listDiv.appendChild(btn);
+        });
+        listDiv.style.display = 'flex';
+    }
+
+    // 3. Affichage du détail
+    function showDetail(category, idx) {
+        const detailDiv = document.getElementById('doc-detail');
+        const detailContent = document.getElementById('doc-detail-content');
+        detailContent.innerHTML = `<h2>${docData[category][idx].title}</h2>${docData[category][idx].detail}`;
+        detailDiv.style.display = 'block';
+        document.getElementById('doc-list').style.display = 'none';
+    }
+
+    function hideDetail() {
+        document.getElementById('doc-detail').style.display = 'none';
+        document.getElementById('doc-list').style.display = 'flex';
+    }
+
+    // 4. Gestion des boutons de catégorie
+    document.querySelectorAll('.doc-cat-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.doc-cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            showDocList(btn.getAttribute('data-category'));
+        });
+    });
+
+    // 5. Affichage initial
+    showDocList('pentest');
+    </script>
 </body>
 </html>
