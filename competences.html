@@ -14,7 +14,7 @@
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="parcours.html">Parcours</a></li>
-                <li><a href="competences.html">Compétences</a></li>
+                <li><a href="competences.html" class="active">Compétences</a></li>
                 <li><a href="projets.html">Projets</a></li>
             </ul>
         </nav>
@@ -22,65 +22,95 @@
 
     <main>
         <section class="competences-section">
-            <h1>Mes Compétences</h1>
-            <p class="intro">
-                Voici un aperçu de mes domaines d’expertise en cybersécurité, réseaux, systèmes et développement. 
-            </p>
-            
-            <!-- Compétences techniques -->
-            <h2>Compétences techniques</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">🛡️</div>
-                    <h3>Pentest & Sécurité offensive</h3>
-                    <p>
-                        Tests d’intrusion, audit d’applications web, exploitation de failles, rédaction de rapports, outils : Nmap, Burp Suite, Metasploit, SQLmap, JohnTheRipper, Hydra…
-                    </p>
+            <h1>Compétences</h1>
+            <div class="competences-grid">
+
+                <div class="competence-card">
+                    <h2>Exploitation et administration de services et systèmes</h2>
+                    <ul>
+                        <li>Exploiter des services : Apache, MySQL, DHCP, DNS, Pfsense, Wiki</li>
+                        <li>Administrer des systèmes (serveurs et postes de travail) : Windows, Linux, Windows AD</li>
+                        <li>Administrer des réseaux : commutateurs (VLAN, port monitoring, STP), concentrateurs WiFi (VLAN, pont WiFi), routeurs (statique, RIP, dynamique, inter-VLAN)</li>
+                        <li>Analyser des trames réseau (Wireshark)</li>
+                        <li>Gérer la virtualisation : Proxmox, VirtualBox, conteneurs, VM</li>
+                        <li>Mettre en place la haute disponibilité : RAID, sauvegarde, déploiement d'images</li>
+                        <li>Utiliser les langages de commandes et scripting : Windows batch, Unix Shell, matériels d'interconnexion</li>
+                    </ul>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🌐</div>
-                    <h3>Réseaux & Protocoles</h3>
-                    <p>
-                        TCP/IP, VLAN, VPN, Wi-Fi, DNS, routage, firewall, analyse de trafic (Wireshark), sécurisation d’infrastructures, segmentation réseau.
-                    </p>
+
+                <div class="competence-card">
+                    <h2>Sécurité des systèmes et réseaux</h2>
+                    <ul>
+                        <li>Mettre en œuvre l’authentification (AD), VLAN, ACL, DMZ</li>
+                        <li>Configurer et utiliser des pare-feu, VPN, certificats, HTTPS, SSH</li>
+                        <li>Protéger les données personnelles et la sécurité des accès</li>
+                    </ul>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">💻</div>
-                    <h3>Systèmes & Virtualisation</h3>
-                    <p>
-                        Administration Linux (Debian, Kali, Ubuntu), Windows Server, Active Directory, scripts Bash/Python, virtualisation (VMware, VirtualBox).
-                    </p>
+
+                <div class="competence-card">
+                    <h2>Gestion d’infrastructures et de parcs informatiques</h2>
+                    <ul>
+                        <li>Câblage et éléments d’interconnexion : besoins, caractéristiques, installation</li>
+                        <li>Gestion de parc : mises à jour (WSUS), protection du poste de travail, clonage (FOG), sauvegarde et restauration</li>
+                        <li>Gestion et résolution d’incidents : gestion de tickets (GLPI), prise en main à distance, rédaction de procédures</li>
+                    </ul>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🔐</div>
-                    <h3>Cryptographie & Forensic</h3>
-                    <p>
-                        Hashing, chiffrement, analyse de logs, récupération de données, forensic sur disque/réseau, outils : Hashcat, Autopsy, Volatility.
-                    </p>
+
+                <div class="competence-card">
+                    <h2>Conception et gestion de projets d’infrastructure</h2>
+                    <ul>
+                        <li>Analyser un cahier des charges</li>
+                        <li>Planifier un projet</li>
+                        <li>Réaliser des schémas réseau</li>
+                        <li>Utiliser des méthodes et outils : Trello</li>
+                    </ul>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">📝</div>
-                    <h3>Développement & Scripting</h3>
-                    <p>
-                        Python, Bash, HTML/CSS, JavaScript, PHP, C/C++.<br>
-                        Automatisation, développement d’outils de sécurité, parsing de fichiers, exploitation de vulnérabilités.
-                    </p>
+
+                <div class="competence-card">
+                    <h2>Développement et applications web</h2>
+                    <ul>
+                        <li>Développer des bases web : HTML, CSS, PHP/MySQL</li>
+                        <li>Manipuler les données et gérer les droits d'accès (SQL)</li>
+                    </ul>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🌍</div>
-                    <h3>Sécurité web</h3>
-                    <p>
-                        Recherche de failles XSS, CSRF, SQLi, LFI/RFI, gestion des sessions, audit de configurations, sécurisation d’applications.
-                    </p>
+
+                <div class="competence-card">
+                    <h2>Savoir-faire professionnels</h2>
+                    <ul>
+                        <li>Caractériser, justifier, maquetter, installer, configurer, tester, valider et documenter</li>
+                        <li>Paramétrer, exploiter, interconnecter, administrer, sécuriser, sauvegarder et restaurer</li>
+                        <li>Analyser, contrôler, améliorer, mettre à jour, remplacer, migrer, automatiser, optimiser</li>
+                        <li>Maintenir la disponibilité, la performance et la sécurité</li>
+                        <li>Diagnostiquer et résoudre les incidents</li>
+                    </ul>
                 </div>
+
+                <div class="competence-card">
+                    <h2>Environnements et outils maîtrisés</h2>
+                    <ul>
+                        <li>OS : Windows Server 2016/2022, Windows 10, Windows 11, Linux Debian (console et XFCE), Kali Linux, Ubuntu, Samba</li>
+                        <li>Logiciels : Apache, MySQL, SSH, Wireshark, Proxmox, VirtualBox, PacketTracer</li>
+                        <li>Matériels : commutateurs (CISCO, DLINK), points d'accès WiFi (DLINK), routeurs (CISCO), PC, serveurs de virtualisation (Fujitsu)</li>
+                        <li>Langages : Shell Unix, PowerShell, PHP, HTML, CSS</li>
+                    </ul>
+                </div>
+
             </div>
-            
-            <!-- Certifications -->
-            <h2>Certifications</h2>
-            <div class="certif-badges">
-                <span class="certif-badge">ANSSI SecNumAcad</span>
-                <span class="certif-badge">PIX</span>
-                <span class="certif-badge">MOOC CNIL RGPD</span>
+
+            <h1 class="certif-title">Certifications</h1>
+            <div class="certifications-grid">
+                <div class="certif-card">
+                    <span class="certif-name">CNIL</span>
+                    <span class="certif-desc">Certificat de sensibilisation à la protection des données personnelles (RGPD)</span>
+                </div>
+                <div class="certif-card">
+                    <span class="certif-name">ANSSI</span>
+                    <span class="certif-desc">MOOC SecNumAcadémie (sécurité informatique, bonnes pratiques)</span>
+                </div>
+                <div class="certif-card">
+                    <span class="certif-name">PIX</span>
+                    <span class="certif-desc">Certification nationale de compétences numériques</span>
+                </div>
             </div>
         </section>
     </main>
@@ -92,7 +122,5 @@
     <footer>
         <p class="copyright">© Tous droits réservés</p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

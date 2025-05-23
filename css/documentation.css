@@ -68,13 +68,18 @@ nav a {
     text-decoration: underline;
     font-weight: normal;
     font-size: 1.15rem;
-    transition: color 0.3s;
-    padding: 0.2rem 0.4rem;
+    transition: color 0.2s, background 0.2s, border-radius 0.2s;
+    padding: 0.2rem 0.8rem;
+    border-radius: 18px;
 }
 
-nav a:hover {
-    color: #f4f0ff;
+nav a:hover,
+nav a.active {
+    color: var(--primary-color);
+    background: #f5eaff;
+    text-decoration: none;
 }
+
 
 main {
     flex: 1 0 auto;

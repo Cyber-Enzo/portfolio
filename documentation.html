@@ -655,20 +655,150 @@ print(s.recv(1024))
             ]
         },
         services: [
-            {
-                title: "Installer un serveur FOG",
-                detail: "<p>Guide pas à pas pour installer FOG sur Debian/Ubuntu.<br><a href='#'>Voir le guide complet</a></p>"
-            },
-            {
-                title: "Déployer GLPI",
-                detail: "<p>Étapes pour installer et configurer GLPI.<br><a href='#'>Voir le tuto</a></p>"
-            }
-        ],
+    {
+        title: "Installation de Kali Linux",
+        detail: `
+<p><b>1. Télécharger l’image ISO de Kali Linux</b><br>
+Rendez-vous sur le site officiel de Kali Linux : 
+<a href="https://www.kali.org/get-kali/" target="_blank" rel="noopener">https://www.kali.org/get-kali/</a><br>
+Téléchargez l’image ISO correspondant à votre architecture (généralement 64 bits).<br>
+Ce tutoriel montre l’installation sur <b>VirtualBox</b>, mais la procédure est identique avec tout autre logiciel de virtualisation.
+</p>
+
+<p><b>2. Créer une nouvelle machine virtuelle dans VirtualBox</b><br>
+Ouvrez VirtualBox et cliquez sur <b>Nouvelle</b>.<br>
+<img src="images/kali-linux/Kali-01.png" alt="Créer une nouvelle VM Kali Linux dans VirtualBox" style="max-width:480px;display:block;margin:1em auto;">
+</p>
+
+<p><b>3. Configurer la machine virtuelle</b><br>
+Donnez un nom à la VM (par exemple "Kali Linux"), choisissez "Linux" comme type et "Debian (64 bits)" comme version.<br>
+<img src="images/kali-linux/Kali-02.png" alt="Configuration de la VM Kali Linux" style="max-width:480px;display:block;margin:1em auto;">
+Cliquez sur <b>Finish</b>.<br>
+Ensuite, allez dans la configuration de la VM :
+<ul>
+    <li>Attribuez au moins <b>2048 Mo</b> de RAM (4096 Mo recommandé pour de meilleures performances).</li>
+    <li>Dans l’onglet <b>Réseau</b>, réglez le mode d’accès réseau sur <b>Accès par pont</b> et choisissez votre interface réseau.</li>
+</ul>
+<img src="images/kali-linux/Kali-03.png" alt="Paramètres réseau en mode pont" style="max-width:480px;display:block;margin:1em auto;">
+</p>
+
+<p><b>4. Démarrer la machine virtuelle</b><br>
+Lancez la VM. Au premier démarrage, sélectionnez l’ISO de Kali Linux téléchargée si demandé.
+</p>
+
+<p><b>5. Lancer l’installation graphique</b><br>
+Dans le menu d’accueil, choisissez <b>Graphical install</b>.<br>
+<img src="images/kali-linux/Kali-04.png" alt="Choix Graphical install" style="max-width:480px;display:block;margin:1em auto;">
+</p>
+
+<p><b>6. Choisir les paramètres régionaux</b><br>
+Sélectionnez la langue <b>français</b>, la zone géographique <b>France</b> et le clavier <b>français</b>.
+</p>
+
+<p><b>7. Définir le nom de la machine et du domaine</b><br>
+Entrez le nom de votre machine. Laissez le domaine sur <b>home</b> si vous n’avez pas de domaine spécifique.
+</p>
+
+<p><b>8. Créer l’utilisateur et le mot de passe</b><br>
+Saisissez le nom d’utilisateur souhaité et choisissez un mot de passe sécurisé.
+</p>
+
+<p><b>9. Partitionner le disque</b><br>
+Choisissez <b>Assisté - utiliser un disque entier</b>.<br>
+<img src="images/kali-linux/Kali-05.png" alt="Partitionnement assisté" style="max-width:480px;display:block;margin:1em auto;">
+Sélectionnez le disque proposé par défaut (sauf si vous avez ajouté d’autres disques).
+<br>Choisissez <b>Tout dans une seule partition</b>.<br>
+<img src="images/kali-linux/Kali-06.png" alt="Tout dans une seule partition" style="max-width:480px;display:block;margin:1em auto;">
+Terminez le partitionnement et appliquez les changements.
+</p>
+
+<p><b>10. Confirmer l’écriture sur le disque</b><br>
+Validez en sélectionnant <b>Oui</b> pour appliquer les changements sur les disques.<br>
+<img src="images/kali-linux/Kali-07.png" alt="Appliquer les changements sur les disques" style="max-width:480px;display:block;margin:1em auto;">
+L’installation du système commence, cela peut prendre quelques minutes.
+</p>
+
+<p><b>11. Choisir les logiciels à installer</b><br>
+Laissez la sélection par défaut des logiciels proposés.<br>
+<img src="images/kali-linux/Kali-08.png" alt="Sélection des logiciels par défaut" style="max-width:480px;display:block;margin:1em auto;">
+L’installation des logiciels peut également prendre un certain temps.
+</p>
+
+<p><b>12. Installer le programme de démarrage GRUB</b><br>
+Lorsqu’on vous le demande, choisissez <b>Oui</b> pour installer GRUB.<br>
+<img src="images/kali-linux/Kali-09.png" alt="Choix installation du GRUB" style="max-width:480px;display:block;margin:1em auto;">
+Sélectionnez <b>/dev/sda</b> comme périphérique d’installation du programme de démarrage.<br>
+<img src="images/kali-linux/Kali-10.png" alt="Sélection du disque pour GRUB" style="max-width:480px;display:block;margin:1em auto;">
+</p>
+
+<p><b>13. Fin de l’installation</b><br>
+Une fois l’installation terminée, sélectionnez <b>Continuer</b> pour redémarrer la machine.<br>
+<img src="images/kali-linux/Kali-11.png" alt="Installation terminée" style="max-width:480px;display:block;margin:1em auto;">
+</p>
+
+<p><b>14. Premier démarrage de Kali Linux</b><br>
+Au redémarrage, choisissez Kali Linux dans le menu de démarrage, puis connectez-vous avec l’utilisateur et le mot de passe créés précédemment.<br>
+<b>Bienvenue sur Kali Linux !</b><br>
+<img src="images/kali-linux/Kali-12.png" alt="Bureau Kali Linux" style="max-width:480px;display:block;margin:1em auto;">
+</p>
+`
+    },
+    {
+        title: "Installer un serveur FOG",
+        detail: "<p>Guide pas à pas pour installer FOG sur Debian/Ubuntu.<br><a href='#'>Voir le guide complet</a></p>"
+    },
+    {
+        title: "Déployer GLPI",
+        detail: "<p>Étapes pour installer et configurer GLPI.<br><a href='#'>Voir le tuto</a></p>"
+    },
+],
+
         reseau: [
-            {
-                title: "Configurer une interface réseau Linux",
-                detail: "<p><code>ip addr add 192.168.1.10/24 dev eth0</code></p>"
-            },
+    {
+        title: "Configurer une interface réseau Linux",
+        detail: `<p>Pour configurer une interface réseau sous Linux (Debian/Ubuntu), il faut éditer en root le fichier <code>/etc/network/interfaces</code> :<br><b>Ouvrir le fichier avec nano :</b></p>
+                <pre><code>nano /etc/network/interfaces</code></pre>
+
+                <p><b>Exemple pour une configuration automatique (DHCP) :</b></p>
+                <pre><code># Interface loopback
+                auto lo
+                iface lo inet loopback
+
+                # Interface réseau principale en DHCP
+                auto eth0
+                iface eth0 inet dhcp
+                </code></pre>
+
+                <p><b>Exemple pour une IP statique :</b></p>
+    <pre><code># Interface loopback
+    auto lo
+    iface lo inet loopback
+
+# Interface réseau principale en IP fixe
+    auto eth0
+    iface eth0 inet static
+        address 192.168.1.100      # Adresse IP de la machine
+        netmask 255.255.255.0      # Masque de sous-réseau
+        gateway 192.168.1.254      # Passerelle (routeur)
+        dns-nameservers 8.8.8.8    # (optionnel) Serveur DNS
+    </code></pre>
+
+    <ul>
+        <li><b>auto eth0</b> : démarre l’interface au démarrage</li>
+        <li><b>iface eth0 inet static</b> : mode manuel (IP fixe)</li>
+        <li><b>address</b> : IP attribuée à la machine</li>
+        <li><b>netmask</b> : masque du réseau local</li>
+        <li><b>gateway</b> : IP de la box/routeur</li>
+        <li><b>dns-nameservers</b> : serveur(s) DNS à utiliser</li>
+    </ul>
+
+        <p>
+        <b>Après modification, appliquez la configuration :</b>
+        </p>
+        <pre><code>systemctl restart networking.service</code></pre>
+        <p>
+        Pour lister vos interfaces : <code>ip link</code></i></p>`
+    },
             {
                 title: "Configurer un firewall UFW",
                 detail: "<p><code>ufw allow 22/tcp</code></p>"

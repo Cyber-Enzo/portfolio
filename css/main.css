@@ -70,13 +70,19 @@ nav a {
     padding: 0.2rem 0.4rem;
 }
 
+nav a.active,
+nav a:hover {
+    color: var(--primary-color);
+}
+
+
 nav a:hover {
     color: var(--primary-color);
 }
 
 /* Présentation */
 main {
-    flex: 1;
+    flex: 1 0 auto;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -186,16 +192,14 @@ main {
     outline-offset: 2px;
 }
 
-/* Footer */
 footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
     width: 100%;
     background: transparent;
     text-align: center;
     z-index: 200;
+    position: relative; 
 }
+
 
 footer .copyright {
     color: var(--footer-color);

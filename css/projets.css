@@ -67,6 +67,12 @@ nav a:hover {
     color: var(--primary-color);
 }
 
+nav a.active,
+nav a:hover {
+    color: var(--primary-color);
+}
+
+
 main {
     flex: 1 0 auto;
     display: flex;
