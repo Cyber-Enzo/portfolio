@@ -440,3 +440,26 @@ footer .copyright {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+.bouton-google {
+    /* Propriétés de base du bouton */
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #8506ec;
+    color: white; 
+    text-decoration: none; 
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+
+    /* NOUVELLES PROPRIÉTÉS POUR LE CENTRAGE (Flexbox) */
+    /* 1. Rendre l'élément Flex container */
+    display: flex; 
+    
+    /* 2. Centrer le contenu horizontalement */
+    justify-content: center; 
+    
+    /* 3. Centrer le contenu verticalement (si le bouton avait une hauteur fixe) */
+    align-items: center; 
+}
