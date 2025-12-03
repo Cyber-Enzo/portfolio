@@ -444,7 +444,7 @@ footer .copyright {
 .bouton-google {
     /* Propriétés de base du bouton */
     display: inline-block;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border: none;
     border-radius: 5px;
     background-color: #8506ec;
