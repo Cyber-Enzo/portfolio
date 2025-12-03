@@ -297,3 +297,16 @@ footer .copyright {
         min-height: unset;
     }
 }
+
+.bouton-google {
+    /* Donne l'apparence d'un bouton */
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Coins arrondis */
+    background-color: #e928a8; /* Rose */
+    color: white; 
+    text-decoration: none; /* Enlève le soulignement par défaut des liens */
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+}
