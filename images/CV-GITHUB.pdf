@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+        <title>    Éditeur de CV - CVDesignR
+  </title>
+        <meta name="test" content="CVDesignR est un outil en ligne gratuit de création de CV format PDF, avec des modèles classiques et design, pour faire rapidement votre CV vous-même. Inscription rapide et gratuite."/>
+    <link rel="canonical" href=""/>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  
+  <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1, user-scalable=no">
+  
+    <style type="text/css">
+        :root {
+          --header-fill-color-logo: #2babe2;
+          --dashboard-main-color  : #2babe2;
+          --dashboard-alt-color   : #f04e98;
+          --sidebar-primary       : #fff;
+          --sidebar-secondary     : #002539;
+
+          
+
+          --button-primary-background-color: #f04e98;
+          --button-primary-color: #fff;
+          --button-primary-background-color-hover: #db2777;
+          --button-primary-color-hover: #fff;
+
+          --button-primary-background-color-alt: #ffd3e7;
+          --button-primary-background-color-alt-hover: #ffd3e7;
+          --button-primary-color-alt: #fa2a89;
+          --button-primary-color-alt-hover: #fa2a89;
+
+
+          --button-primary-background-color-outlined: #fff;
+          --button-primary-background-color-outlined-hover: #fff;
+          --button-primary-color-outlined: #fa2a89;
+          --button-primary-color-outlined-hover: #fa2a89;
+
+          
+
+          --button-secondary-background-color: #2babe2;
+          --button-secondary-color: #fff;
+          --button-secondary-background-color-hover: #0075a7;
+          --button-secondary-color-hover: #fff;
+          --button-secondary-color-alt-hover: #fff;
+
+          --button-secondary-background-color-alt: #e7f7fd;
+          --button-secondary-background-color-alt-hover: #e7f7fd;
+          --button-secondary-color-alt: #2babe2;
+
+          --button-secondary-background-color-outlined: #fff;
+          --button-secondary-background-color-outlined-hover: #fff;
+          --button-secondary-color-outlined: #2babe2;
+          --button-secondary-color-outlined-hover: #2babe2;
+
+        }
+    </style>
+  
+    <link rel="stylesheet" href="/dist/cvdr/routed-DQSYoJcD.css" type="text/css" /><link rel="stylesheet" href="/dist/cvdr/useElementVisibility-CVEdEYj-.css" type="text/css" /><link rel="stylesheet" href="/dist/cvdr/Modal-C2F8-zL_.css" type="text/css" /><link rel="stylesheet" href="/dist/cvdr/useResumeSelector-BM5EBFpF.css" type="text/css" /><link rel="stylesheet" href="/dist/cvdr/style-BOSW0zR9.css" type="text/css" />
+
+      <link rel="icon" type="image/png" href="https://cvdesignr.com/favicon.png"/>
+  
+  
+<script>
+  dataLayer = [];
+</script>
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-M7VJ3QG');</script>
+
+
+<script
+        src="https://browser.sentry-cdn.com/6.0.2/bundle.min.js"
+        integrity="sha384-mPF153CKKRhOGUecfj8Bo9gMzP/39GkWXC498PTR2t9NU6SRnQQpCM2b3hiUTsEo"
+        crossorigin="anonymous"
+></script>
+<script type="text/javascript">
+  Sentry.init({
+    dsn: 'https://1ba6e89e3e964c33bc8f9933749ee3d3@sentry.io/1395597',
+    environment: 'production'
+  });
+    Sentry.setUser({id: "2e36bd2c-0ef2-4e1b-aa34-3d5bac50643f"});
+  </script>
+
+<script src="https://cdn.cvdesignr.com/static/landing/spfct_v3_cvdesignr.js"></script>
+
+</head>
+<body class="">
+
+  
+  <div id="app-container"></div>
+
+  
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M7VJ3QG"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.5&appId=426259607572476";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  window.fbAsyncInit = function() {
+
+  };
+</script>
+
+
+
+
+
+    <script type="text/javascript">
+      window.siteurl = "https://cvdesignr.com";
+      window.mainurl = "https://cvdesignr.com";
+      window.stripe_key = 'pk_live_domnY1u2j0q2pCwqjQZYXW6N';
+      window.lang = "fr_FR";
+      window.langURLPrefix = "fr";
+      window.currentVersion = '8.10';
+      window.externalDatasetWillImport = false;
+
+      window.FRONT_CATCHER = function (message) {
+        requestPOST(
+          '/front/catcher',
+          function (response) {
+          },
+          {
+            message: message
+          }
+        )
+      };
+
+      window.userData = {
+        user: {
+          uuid: '2e36bd2c-0ef2-4e1b-aa34-3d5bac50643f',
+          gender: 'male',
+          email: 'enzosoyer87@gmail.com',
+          firstname: 'Enzo',
+          name: 'Enzo Soyer',
+        },
+      };
+
+      window.navigationURLs = {
+        logout: "/fr/logout",
+        dashboard: "/fr/dashboard",
+        resumes: "/fr/resumes",
+        letters: "/fr/letters",
+        maestro: "/fr/maestro",
+        jobOffers: "/fr/job-listing",
+        account: "/fr/edit-account",
+        cvStats: "/fr/stats",
+        cvScanner: "/fr/ats-scanning",
+        help: "/fr/edit-account",
+        faq: "https://faq.cvdesignr.com",
+        terms: "/fr/terms",
+        privacy: "/fr/politique-confidentialite",
+        contact: "/fr/contact",
+      };
+      window.activeNav = null;
+
+      window.isClassicUser = true;
+      window.isUserPro = false;
+      window.currentMembership = null;
+
+      window.useVueFa = true;
+      window.checkTerms = true;
+    </script>
+
+    
+  
+      <!--[if !IE 11]><!-->
+        <!--<![endif]-->
+    <script type="text/javascript">
+        window.languages_list = {"ab":"Abkhaze","aa":"Afar","af":"Afrikaans","sq":"Albanais","de":"Allemand","gswfr":"Alsacien","zgh":"Amazighe standard marocain","am":"Amharique","en":"Anglais","ar":"Arabe","arc":"Aram\u00e9en","hy":"Arm\u00e9nien","as":"Assamais","ay":"Aymara","az":"Az\u00e9ri","ba":"Bachkir","bm":"Bambara","eu":"Basque","bem":"Bemba","bn":"Bengali\/Bangla","bi":"Bichelamar","bh":"Bihari","my":"Birman","be":"Bi\u00e9lorusse","bs":"Bosnien","br":"Breton","bg":"Bulgare","ks":"Cachemiri","ca":"Catalan","zh":"Chinois","si":"Cingalais","co":"Corse","ko":"Cor\u00e9en","hr":"Croate","crp":"Cr\u00e9ole","da":"Danois","dyo":"Diola","dua":"Douala","dz":"Dzongkha","es":"Espagnol","eo":"Esperanto","et":"Estonien","fj":"Fidjien","fi":"Finnois","fr":"Fran\u00e7ais","fy":"Frison occidental","fud":"Futunien","fo":"F\u00e9ro\u00efen","gl":"Galicien","cy":"Gallois","el":"Grec","kl":"Groenlandais","gn":"Guarani","gu":"Gujarati","ka":"G\u00e9orgien","ha":"Haoussa","hi":"Hindi","hu":"Hongrois","iw":"H\u00e9breu","in":"Indon\u00e9sien","ia":"Interlingua","ik":"Inupiak","ga":"Irlandais","is":"Islandais","it":"Italien","ja":"Japonais","jw":"Javanais","kab":"Kabyle","kn":"Kannada","kk":"Kazakh","km":"Khmer","rw":"Kinyarwanda","ky":"Kirghiz","rn":"Kirundi","ku":"Kurde","ber":"Langues berb\u00e8res","sgn":"Langues des signes","lo":"Lao","la":"Latin","lv":"Letton","ln":"Lingala","lt":"Lituanien","lb":"Luxembourgeois","mk":"Mac\u00e9donien","swb":"Mahorais","ms":"Malais","ml":"Malayalam","mg":"Malgache","mt":"Maltais","mi":"Maori","mr":"Marathi","mo":"Moldave","mn":"Mongol","na":"Nauruan","new":"Newari","no":"Norv\u00e9gien","nl":"N\u00e9erlandais","ne":"N\u00e9palais","ie":"Occidental","oc":"Occitan","om":"Oromo","ur":"Ourdou","uz":"Ouzbek","ps":"Pachto","pa":"Pendjabi","fa":"Persan","ful":"Peul","pl":"Polonais","pt":"Portugais","qu":"Quechua","rm":"Romanche","ro":"Roumain","ru":"Russe","sm":"Samoan","sg":"Sango","sa":"Sanskrit","sr":"Serbe","sh":"Serbo-croate","sn":"Shona","sd":"Sindhi","sk":"Slovaque","sl":"Slov\u00e8ne","so":"Somali","snk":"Sonink\u00e9","wen":"Sorabe","st":"Sotho du Sud","su":"Soundanais","srn":"Sranan tongo","gsw":"Suisse-allemand","sv":"Su\u00e9dois","sw":"Swahili","ss":"Swati","tg":"Tadjik","tl":"Tagalog","ty":"Tahitien","ta":"Tamoul","tt":"Tatar","cs":"Tch\u00e8que","th":"Tha\u00ef","bo":"Tib\u00e9tain","ti":"Tigrigna","to":"Tongien","ts":"Tsonga","tn":"Tswana","tr":"Turc","tk":"Turkm\u00e8ne","tw":"Twi","te":"T\u00e9lougou","uk":"Ukrainien","vi":"Vietnamien","vo":"Volap\u00fck","wo":"Wolof","xh":"Xhosa","ji":"Yiddish","yo":"Yoruba","zu":"Zoulou","gd":"\u00c9cossais"};
+        window.countries_list = {"AF":"Afghanistan","ZA":"Afrique du Sud","AL":"Albanie","DZ":"Alg\u00e9rie","DE":"Allemagne","AD":"Andorre","AO":"Angola","AI":"Anguilla","AQ":"Antarctique","AG":"Antigue et Barbuda","AN":"Antilles n\u00e9erlandaises","SA":"Arabie Saoudite","AR":"Argentine","AM":"Armenie","AW":"Aruba","AP":"Asie \/ R\u00e9gion pacifique","AU":"Australie","AT":"Autriche","AZ":"Azerbaijan","BS":"Bahamas","BH":"Bahrain","BD":"Bangladesh","BB":"Barbade","BE":"Belgique","BZ":"Belize","BJ":"Benin","BM":"Bermudes","BT":"Bhoutan","BY":"Bi\u00e9lorussie","BO":"Bolivie","BA":"Bosnie Herz\u00e9govine","BW":"Botswana","BN":"Brunei Darussalam","BR":"Br\u00e9sil","BG":"Bulgarie","BF":"Burkina Faso","BI":"Burundi","KH":"Cambodge","CM":"Cameroun","CA":"Canada","CV":"Cape Vert","CL":"Chili","CN":"Chine","CY":"Chypre","CO":"Colombie","KM":"Comores","CG":"Congo","KP":"Cor\u00e9e du Nord","KR":"Cor\u00e9e du Sud","CR":"Costa Rica","HR":"Croatie","CU":"Cuba","CW":"Cura\u00e7ao","CI":"C\u00f4te D'Ivoire","DK":"Danemark","DJ":"Djibouti","DM":"Dominique","EG":"Egypte","AE":"Emirats Arabe unis","EC":"Equateur","ER":"Erythr\u00e9e","ES":"Espagne","EE":"Estonie","US":"Etats-Unis","ET":"Ethiopie","FJ":"Fiji","FI":"Finlande","FR":"France","GA":"Gabon","GM":"Gambie","GE":"Georgie","GH":"Ghana","GI":"Gibraltar","GD":"Grenade","GL":"Groenland","GR":"Gr\u00e8ce","GP":"Guadeloupe","GU":"Guam","GT":"Guatemala","GG":"Guernsey","GN":"Guin\u00e9e","GQ":"Guin\u00e9e Equatorial","GW":"Guin\u00e9e-Bissau","GY":"Guyane","GF":"Guyane Fran\u00e7aise","GS":"G\u00e9orgie du Sud-et-les \u00celes Sandwich du Sud","HT":"Haiti","HN":"Honduras","HK":"Hong Kong","HU":"Hongrie","IM":"Ile of Man","AX":"Iles Aland","BV":"Iles Bouvet","KY":"Iles Ca\u00efman","CX":"Iles Christmas","CC":"Iles Cocos","CK":"Iles Cook","FO":"Iles F\u00e9ro\u00e9","FK":"Iles Malouines","MH":"Iles Marshall","PN":"Iles Pitcairn","SB":"Iles Solomon","VI":"Iles Vierges Am\u00e9ricaines","VG":"Iles Vierges britanniques","IN":"Inde","ID":"Indon\u00e9sie","IQ":"Irak","IR":"Iran","IE":"Irlande","IS":"Islande","IL":"Israel","IT":"Italie","JM":"Jamaique","JP":"Japon","JE":"Jersey","JO":"Jordanie","KZ":"Kazakhstan","KE":"Kenya","KI":"Kiribati","XK":"Kosovo","KW":"Kowe\u00eft","KG":"Kyrgyzstan","LA":"Laos","LS":"Lesotho","LV":"Lettonie","LB":"Liban","LR":"Liberia","LY":"Libye","LI":"Liechtenstein","LT":"Lituanie","LU":"Luxembourg","MO":"Macao","MK":"Mac\u00e9doine","MG":"Madagascar","MW":"Malawi","MY":"Malaysie","MV":"Maldives","ML":"Mali","MT":"Malte","MA":"Maroc","MQ":"Martinique","MU":"Maurice","MR":"Mauritanie","YT":"Mayotte","MX":"Mexique","FM":"Micron\u00e9sie","MD":"Moldavie","MC":"Monaco","MN":"Mongolie","ME":"Montenegro","MS":"Montserrat","MZ":"Mozambique","MM":"Myanmar","NA":"Namibie","NR":"Nauru","NI":"Nicaragua","NE":"Niger","NG":"Nigeria","NU":"Niue","NO":"Norv\u00e8ge","NC":"Nouvelle Caledonia","NZ":"Nouvelle Z\u00e9lande","NP":"N\u00e9pal","OM":"Oman","UG":"Ouganda","UZ":"Ouzbekistan","PK":"Pakistan","PW":"Palaos","PS":"Palestine","PA":"Panama","PG":"Papouasie-Nouvelle-Guin\u00e9e","PY":"Paraguay","NL":"Pays-Bas","BQ":"Pays-Bas Carib\u00e9ens","PE":"Peru","PH":"Philippines","PL":"Pologne","PF":"Polyn\u00e9sie Fran\u00e7aise","PT":"Portugal","PR":"Puerto Rico","QA":"Qatar","RE":"Reunion","RO":"Romania","GB":"Royaume-Uni","RU":"Russie","RW":"Rwanda","CF":"R\u00e9publique Centrafricaine","DO":"R\u00e9publique Dominicaine","CD":"R\u00e9publique D\u00e9mocratique du Congo","CZ":"R\u00e9publique Tch\u00e8que","EH":"Sahara de l'ouest","BL":"Saint Barthelemy","SH":"Saint Hel\u00e8ne","SM":"Saint Marin","MF":"Saint Martin","SX":"Saint Martin","PM":"Saint Pierre et Miquelon","KN":"Saint-Christophe-et-Ni\u00e9v\u00e8s","VC":"Saint-Vincent-et-les-Grenadines","LC":"Sainte Lucie","SV":"Salvador","WS":"Samoa","AS":"Samoa Am\u00e9ricaine","ST":"Sao Tom\u00e9-et-Principe","SN":"Senegal","RS":"Serbia","SC":"Seychelles","SL":"Sierra Leone","SG":"Singapore","SK":"Slovaquie","SI":"Slov\u00e9nie","SO":"Somalie","SD":"Soudan","SS":"Soudan du Sud","LK":"Sri Lanka","CH":"Suisse","SR":"Suriname","SE":"Su\u00e8de","SJ":"Svalbard et Jan Mayen","SZ":"Swaziland","SY":"Syrie","TW":"Taiwan","TJ":"Tajikistan","TZ":"Tanzanie","TD":"Tchad","TF":"Terres australes et antarctiques fran\u00e7aises","IO":"Territoire britannique de l'oc\u00e9an Indien","TH":"Tha\u00eflande","TL":"Timor Oriental","TG":"Togo","TK":"Tokelau","TO":"Tonga","TT":"Trinidad et Tobago","TN":"Tunisie","TM":"Turkmenistan","TR":"Turquie","TV":"Tuvalu","UA":"Ukraine","UY":"Uruguay","VU":"Vanuatu","VA":"Vatican","VE":"Venezuela","VN":"Vietnam","WF":"Wallis et Futuna","YE":"Yemen","ZM":"Zambia","ZW":"Zimbabwe","NF":"\u00cele Norfolk","HM":"\u00celes Heard-et-MacDonald","MP":"\u00celes Mariannes du Nord","TC":"\u00celes Turks-et-Ca\u00efcos","UM":"\u00celes mineures \u00e9loign\u00e9es des \u00c9tats-Unis"};
+
+    </script>
+    <script type="module" src="/dist/cvdr/routed-xB0d-WMV.js"></script>
+  
+<script type="text/javascript">
+    const getCookie = id => {
+    const value = document.cookie.match("(^|;)?" + id + "=([^;]*)(;|$)");
+    return value ? value[2] : undefined;
+    };
+    const cvdr_cs = getCookie("cvdr_cs")
+    const consent = cvdr_cs?.includes('marketing') ? 1 : 0
+    sp_track(consent);
+</script>
+
+</body>
+</html>
