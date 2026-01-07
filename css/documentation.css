@@ -441,25 +441,29 @@ footer .copyright {
     to   { opacity: 1; }
 }
 
-.bouton-google {
-    /* Propriétés de base du bouton */
-    display: inline-block;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #8506ec;
-    color: white; 
-    text-decoration: none; 
-    cursor: pointer;
-    font-family: Arial, sans-serif;
-
-    /* NOUVELLES PROPRIÉTÉS POUR LE CENTRAGE (Flexbox) */
-    /* 1. Rendre l'élément Flex container */
-    display: flex; 
-    
-    /* 2. Centrer le contenu horizontalement */
-    justify-content: center; 
-    
-    /* 3. Centrer le contenu verticalement (si le bouton avait une hauteur fixe) */
-    align-items: center; 
+/* Centre le logo GitHub avec les boutons */
+.doc-categories {
+  display: flex;
+  align-items: center;     /* centre verticalement tout */
+  gap: 10px;               /* espace entre tous les boutons */
 }
+
+.github-icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;               /* supprime les marges */
+}
+
+.github-icon-big {
+  width: 60px;             /* même taille que les boutons */
+  height: 60px;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.github-icon-big:hover {
+  transform: scale(1.1);
+}
+

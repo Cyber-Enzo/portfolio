@@ -297,3 +297,39 @@ footer .copyright {
         min-height: unset;
     }
 }
+
+/* BOUTON CV BAS GAUCHE */
+.cv-button {
+    position: fixed;
+    left: 2.5rem;
+    bottom: 4.2rem;
+    z-index: 100;
+}
+
+.cv-button {
+    display: inline-block;
+    background-color: var(--doc-button-color);
+    color: #fff;
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 2px 16px rgba(141,44,247,0.12);
+    transition: background 0.2s, transform 0.2s;
+    outline: none;
+    user-select: none;
+}
+
+.cv-button:hover,
+.cv-button:focus {
+    background-color: var(--cv-button-hover);
+    color: #fff;
+    transform: scale(1.05);
+    text-decoration: none;
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}

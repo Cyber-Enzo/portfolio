@@ -75,9 +75,72 @@
                 <!-- Projet 3 : OpenNebula -->
                 <div class="projet-card">
                     <div class="projet-header">
-                        <h2>OpenNebula</h2>
+                        <h2>Stage 1 - OpenNebula</h2>
                     </div>
-                    <b>À VENIR..</b>
+                    <p class="projet-desc">
+                        <b>Contexte :</b> Projet pédagogique utilisant OpenNebula comme cloud privé pour déployer des VMs d'attaque (Kali) et cibles vulnérables (Metasploitable, DVWA). Les VMs sont "jetables" pour éviter les persistances après exploitation, avec isolation via VLANs et routeurs virtuels.<br>
+                       
+                        <b>Objectifs :</b> Déployer en un clic des groupes de VMs (attaquants + cibles + routeur) via OneFlow. Réinitialiser automatiquement les VMs à l'état initial post-TP, même si modifiées. Gérer un réseau complexe avec DHCP, NAT et isolation pour une robustesse pédagogique.
+                    </p>
+                    <h3>Points clés</h3>
+                    <ul class="projet-points">
+                        <li>Images non persistantes : Retour à l'état initial après suppression, idéales pour VMs jetables</li>
+                        <li>Snapshots et revert : Permettent de revenir manuellement ou via scripts à un état propre</li>
+                        <li>OneFlow : Orchestre services multi-VM avec dépendances et élasticité.</li>
+                        <li>Réseau : Virtual Routers pour DHCP/NAT, contextualisation à configurer avec précaution pour ISO brutes</li>
+                    </ul>
+                    <h3>Schéma du projet</h3>
+                    <div class="projet-schema">
+                        <div class="schema-img-wrapper">
+                            <img src="images/schéma-opennebula.png" alt="Schéma du projet OpenNebula" class="schema-img" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+                </div>
+                <!-- Projet 4 : AP 1 2ème année  -->
+                <div class="projet-card">
+                    <div class="projet-header">
+                        <h2>AP Semestre 3A - GSB</h2>
+                    </div>
+                    <p class="projet-desc">
+                        <b>Contexte :</b> GSB héberge initialement l'application sur un serveur Linux interne, mais sa criticité exige une disponibilité élevée et une publication en DMZ. La base de données reste en LAN, la partie applicative en DMZ avec tolérance de panne sur deux fronts, authentification via BDD.<br>
+                       
+                        <b>Objectifs :</b> Déployer un serveur web HTTPS/SSL en DMZ connecté à une BDD administrable. Répliquer AD, DHCP, DNS pour redondance. Tester la résilience aux attaques externes via OPNsense et IPAM pour adressage. Mettre en place sauvegardes NAS et procédures documentées.</p>
+                    <h3>Points clés</h3>
+                    <ul class="projet-points">
+                        <li>Architecture : DMZ pour web, LAN pour BDD/clients, WAN simulé ; routage via OPNsense</li>
+                        <li>Services répliqués : AD, DHCP, DNS, WEB, SQL pour tolérance panne</li>
+                        <li>Sécurité/Doc : Test attaque externe, configs commentées, démo, Wiki install, schémas permanents</li>
+                        <li>Contraintes : Diagramme Gantt/ASANA, présentation IPAM, fichiers configs remis</li>
+                    </ul>
+                    <h3>Schéma du projet</h3>
+                    <div class="projet-schema">
+                        <div class="schema-img-wrapper">
+                            <img src="images/schéma-gsbA.png" alt="Schéma du projet GSB" class="schema-img" onclick="openLightbox(this)">
+                        </div>
+                    </div>
+                </div>
+                 <!-- Projet 5 : AP 2 2ème année  -->
+                <div class="projet-card">
+                    <div class="projet-header">
+                        <h2>AP Semestre 3B - GSB</h2>
+                    </div>
+                    <p class="projet-desc">
+                        <b>Contexte :</b> Suite au projet précédent, GSB demande un réagencement sécurisé avec multiples DMZ et double pare-feu. L'infrastructure passe en haute disponibilité avec supervision, logs centralisés et protection active contre les menaces.<br>
+                       
+                        <b>Objectifs :</b> Ajouter répartition de charge (load balancer) sur cluster web et scripts PowerShell pour déploiement/utilisateurs AD. Centraliser logs (serveur + SIEM) et superviser via outil dédié (Zabbix). Déployer IPS pour blocage trafic malveillant et maintenir DNS sur serveurs AD répliqués </p>
+                    <h3>Points clés</h3>
+                    <ul class="projet-points">
+                        <li>Sécurité renforcée : Double pare-feu, plusieurs DMZ, défense en profondeur, IPS avec alertes</li>
+                        <li>Automatisation : Scripts PowerShell pour install/config Windows et ajout users via CSV</li>
+                        <li>Monitoring : Serveur logs + SIEM (Graylog/Wazuh), supervision (Zabbix), IPAM à jour</li>
+                        <li>Contraintes : Gantt/Trello, justification choix (coût/sécurité), schémas permanents, configs</li>
+                    </ul>
+                    <h3>Schéma du projet</h3>
+                    <div class="projet-schema">
+                        <div class="schema-img-wrapper">
+                            <img src="images/schéma-gsbB.png" alt="Schéma du projet GSB" class="schema-img" onclick="openLightbox(this)">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
